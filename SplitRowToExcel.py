@@ -40,8 +40,15 @@ def main():
     for txt in txts:
         ret_single_row_list = convert2excel(txt)
         data.append(ret_single_row_list)
-    for single_row in data:
-        my_sheet.append(single_row)
+    # 行添加
+    # for single_row in data:
+    #     my_sheet.append(single_row)
+
+    # 列添加
+    columns = list(zip(*data))
+    for column in columns:
+        my_sheet.append(column)
+
     wb.save(outputdir+excelDir)
 
 if __name__ == '__main__':
